@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Qrius Classes | Learn Smart, Achieve More</title>
+    <!-- Google Fonts & simple reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefefe;
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* container utility */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* header & navigation */
+        header {
+            background: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+            background-color: rgba(255,255,255,0.96);
+        }
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 18px 0;
+        }
+        .logo h1 {
+            font-size: 1.85rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #1E4A76, #2A9D8F);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .logo p {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #2A9D8F;
+            letter-spacing: 0.5px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1f3b4c;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #2A9D8F;
+            border-bottom: 2px solid #2A9D8F;
+            padding-bottom: 4px;
+        }
+        /* hero section */
+        .hero {
+            background: linear-gradient(120deg, #f0f9ff 0%, #e9f5f2 100%);
+            border-radius: 0 0 48px 48px;
+            padding: 60px 0 70px;
+            margin-bottom: 40px;
+        }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            justify-content: space-between;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-content .tagline {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2A9D8F;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        .hero-content h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #1e3a5f;
+            margin-bottom: 20px;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #2c4e6e;
+            margin-bottom: 28px;
+            max-width: 550px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #1e6f5c;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .btn-primary:hover {
+            background: #0e5a48;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #1e6f5c;
+            color: #1e6f5c;
+            padding: 10px 26px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .btn-outline:hover {
+            background: #1e6f5c;
+            color: white;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image i {
+            font-size: 12rem;
+            color: #2A9D8F;
+            opacity: 0.8;
+        }
+
+        /* section styles */
+        .section {
+            padding: 60px 0;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+            color: #1e3a5f;
+        }
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+        .feature-card {
+            background: white;
+            border-radius: 32px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+            flex: 1 1 260px;
+            transition: 0.2s;
+            border: 1px solid #eef2f5;
+        }
+        .feature-card i {
+            font-size: 2.8rem;
+            color: #2A9D8F;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .feature-card p {
+            color: #4a627a;
+        }
+
+        /* contact page / contact block */
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            background: #ffffff;
+            border-radius: 48px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            margin-top: 20px;
+        }
+        .contact-info {
+            flex: 1;
+        }
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+        .contact-detail i {
+            font-size: 1.8rem;
+            width: 48px;
+            color: #2A9D8F;
+        }
+        .contact-detail div strong {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .contact-form {
+            flex: 1;
+            background: #f9fbfd;
+            border-radius: 32px;
+            padding: 28px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #dce5ec;
+            border-radius: 28px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+        textarea {
+            border-radius: 24px;
+            resize: vertical;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #2A9D8F;
+            box-shadow: 0 0 0 3px rgba(42,157,143,0.2);
+        }
+        button[type="submit"] {
+            background: #1e6f5c;
+            border: none;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .map-placeholder {
+            background: #e2eef0;
+            border-radius: 24px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 20px;
+            color: #1e4a6b;
+        }
+
+        /* legal pages styling (privacy, terms) */
+        .legal-content {
+            background: white;
+            border-radius: 32px;
+            padding: 48px 40px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            margin: 30px 0;
+        }
+        .legal-content h2 {
+            font-size: 1.9rem;
+            margin: 28px 0 12px;
+            color: #1e3a5f;
+        }
+        .legal-content h3 {
+            font-size: 1.3rem;
+            margin: 24px 0 8px;
+            color: #2A9D8F;
+        }
+        .legal-content p, .legal-content li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            color: #2c3e4e;
+        }
+        .legal-content ul {
+            margin-left: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* footer */
+        footer {
+            background: #0f2a38;
+            color: #cddfe6;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 32px;
+        }
+        .footer-col p {
+            margin-top: 10px;
+            max-width: 280px;
+        }
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .footer-col a {
+            color: #cddfe6;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .footer-col a:hover {
+            color: #2A9D8F;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid #2a4b5c;
+            font-size: 0.85rem;
+        }
+        .active-page {
+            font-weight: 800;
+            color: #2A9D8F !important;
+            border-bottom: 2px solid #2A9D8F;
+        }
+        @media (max-width: 800px) {
+            .nav-bar {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .hero-content h2 {
+                font-size: 2.2rem;
+            }
+            .container {
+                padding: 0 20px;
+            }
+            .hero-image i {
+                font-size: 8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav-bar">
+                <div class="logo">
+                    <h1>Qrius Classes</h1>
+                    <p>Learn Smart, Achieve More</p>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#" data-page="home">Home</a></li>
+                    <li><a href="#" data-page="contact">Contact</a></li>
+                    <li><a href="#" data-page="privacy">Privacy Policy</a></li>
+                    <li><a href="#" data-page="terms">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main id="appRoot">
+        <!-- dynamic content will be injected here -->
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Qrius Classes</h4>
+                    <p>Learn Smart, Achieve More — modern learning platform for academic & competitive success.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="#" data-page="home">Home</a>
+                    <a href="#" data-page="contact">Contact</a>
+                    <a href="#" data-page="privacy">Privacy Policy</a>
+                    <a href="#" data-page="terms">Terms & Conditions</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Reach Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> DSS 105, Main Market, Sector 13, Hisar, Haryana 125005</p>
+                    <p><i class="fas fa-phone-alt"></i> 9996454200</p>
+                    <p><i class="fas fa-envelope"></i> shobhitj.nitk@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                © Qrius Classes – All Rights Reserved. | Built with dedication for learners.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ---------- PAGE DATA ----------
+        const pages = {
+            home: `
+                <section class="hero">
+                    <div class="container">
+                        <div class="hero-grid">
+                            <div class="hero-content">
+                                <div class="tagline">✨ Empowering minds, shaping futures</div>
+                                <h2>Learn Smart, <br> Achieve More</h2>
+                                <p>Qrius Classes is a modern learning platform dedicated to empowering students with quality education and innovative teaching methods. We focus on building strong academic foundations while enhancing problem-solving skills and conceptual understanding.</p>
+                                <div class="btn-group">
+                                    <a href="#" data-page="contact" class="btn-primary">Get in touch →</a>
+                                    <a href="#" data-page="contact" class="btn-outline">Enquire now</a>
+                                </div>
+                            </div>
+                            <div class="hero-image">
+                                <i class="fas fa-chalkboard-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="container">
+                        <h2 class="section-title">Why choose Qrius Classes?</h2>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <i class="fas fa-user-graduate"></i>
+                                <h3>Expert Faculty</h3>
+                                <p>Highly qualified mentors with personalized attention for every student.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-brain"></i>
+                                <h3>Conceptual Clarity</h3>
+                                <p>Innovative teaching methods to strengthen fundamentals and problem-solving.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-trophy"></i>
+                                <h3>Competitive Edge</h3>
+                                <p>School academics, competitive exams & skill development under one roof.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-heart"></i>
+                                <h3>Nurturing Curiosity</h3>
+                                <p>Supportive environment that boosts confidence and academic excellence.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section" style="background: #F8Fafc; border-radius: 48px; margin: 20px 0 40px;">
+                    <div class="container">
+                        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                            <h2 style="font-size: 1.9rem;">Our vision for future leaders</h2>
+                            <p style="margin-top: 16px; font-size: 1.1rem;">At Qrius Classes, we believe in nurturing curiosity, boosting confidence, and guiding students toward academic excellence and future success. Whether it's school academics, competitive exam preparation, or skill development, Qrius Classes provides a supportive environment to help every learner succeed.</p>
+                        </div>
+                    </div>
+                </section>
+            `,
+            contact: `
+                <div class="container" style="padding: 40px 0 60px;">
+                    <h2 class="section-title">Get in Touch</h2>
+                    <div class="contact-wrapper">
+                        <div class="contact-info">
+                            <h3>Let’s connect</h3>
+                            <p style="margin-bottom: 32px;">Have questions? We’re happy to help you with course details, schedules, or any support.</p>
+                            <div class="contact-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div><strong>Visit us</strong> DSS 105, Main Market, Sector 13, Hisar, Haryana 125005</div>
+                            </div>
+                            <div class="contact-detail">
+                                <i class="fas fa-phone-alt"></i>
+                                <div><strong>Call / WhatsApp</strong> 9996454200</div>
+                            </div>
+                            <div class="contact-detail">
+                                <i class="fas fa-envelope"></i>
+                                <div><strong>Email</strong> shobhitj.nitk@gmail.com</div>
+                            </div>
+                            <div class="map-placeholder">
+                                <i class="fas fa-location-dot"></i> 📍 Sector 13, Hisar – Easily accessible landmark (Main Market)
+                            </div>
+                        </div>
+                        <div class="contact-form">
+                            <h3>Send a message</h3>
+                            <form id="contactForm">
+                                <div class="form-group"><input type="text" placeholder="Your name" id="nameField" required></div>
+                                <div class="form-group"><input type="email" placeholder="Email address" id="emailField" required></div>
+                                <div class="form-group"><input type="tel" placeholder="Phone (optional)" id="phoneField"></div>
+                                <div class="form-group"><textarea rows="4" placeholder="How can we help you?" id="msgField" required></textarea></div>
+                                <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+                                <p style="margin-top: 12px; font-size: 0.8rem; color: #2A9D8F;" id="formFeedback"></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            `,
+            privacy: `
+                <div class="container">
+                    <div class="legal-content">
+                        <h1 style="font-size: 2.2rem;">Privacy Policy</h1>
+                        <p><strong>Effective Date:</strong> January 1, 2025</p>
+                        <p>At Qrius Classes, we respect your privacy and are committed to protecting any personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard your data when you visit our website or enroll in our programs.</p>
+                        <h2>Information We Collect</h2>
+                        <p>We may collect personal details such as name, email address, phone number, and academic information when you fill out forms, contact us, or register for courses. We also gather non-personal data like browser type and usage patterns to improve our services.</p>
+                        <h2>How We Use Your Information</h2>
+                        <p>Your information helps us to respond to inquiries, provide educational services, send updates, and enhance your learning experience. Qrius Classes does not sell or rent personal data to third parties.</p>
+                        <h2>Data Security</h2>
+                        <p>We implement reasonable security measures to protect your information from unauthorized access or disclosure. However, no online transmission is 100% secure.</p>
+                        <h2>Cookies</h2>
+                        <p>Our website may use cookies to improve functionality and analytics. You can disable cookies in your browser settings if you prefer.</p>
+                        <h2>Changes to Policy</h2>
+                        <p>We may update this Privacy Policy occasionally. Any changes will be posted on this page with a revised date.</p>
+                        <p>If you have any questions regarding privacy, please contact us at shobhitj.nitk@gmail.com or 9996454200.</p>
+                    </div>
+                </div>
+            `,
+            terms: `
+                <div class="container">
+                    <div class="legal-content">
+                        <h1 style="font-size: 2.2rem;">Terms & Conditions</h1>
+                        <p>Welcome to Qrius Classes. By accessing or using our website and services, you agree to comply with and be bound by the following terms and conditions.</p>
+                        <h2>1. Services Overview</h2>
+                        <p>Qrius Classes provides academic coaching, competitive exam preparation, and skill development programs. We reserve the right to modify or discontinue any part of the services without prior notice.</p>
+                        <h2>2. Enrollment & Fees</h2>
+                        <p>Course fees and schedules are subject to change. Payments are non-refundable unless stated otherwise in specific program policies. Students must adhere to the code of conduct during classes.</p>
+                        <h2>3. Intellectual Property</h2>
+                        <p>All content on this website, including logos, text, graphics, and study materials, is the property of Qrius Classes and protected by copyright laws. Unauthorized reproduction is prohibited.</p>
+                        <h2>4. Limitation of Liability</h2>
+                        <p>Qrius Classes shall not be liable for any indirect, incidental, or consequential damages arising from the use of our services or inability to access the website.</p>
+                        <h2>5. Contact Information</h2>
+                        <p>For any disputes or queries, you may reach us at: DSS 105, Main Market, Sector 13, Hisar, Haryana 125005, email: shobhitj.nitk@gmail.com, phone: 9996454200.</p>
+                        <h2>6. Governing Law</h2>
+                        <p>These terms shall be governed by the laws of India, and any legal proceedings shall be subject to the jurisdiction of courts in Hisar, Haryana.</p>
+                        <p>By continuing to use our website and services, you acknowledge that you have read and understood these Terms & Conditions.</p>
+                    </div>
+                </div>
+            `
+        };
+
+        // helper: set active nav styling based on current page id
+        function setActiveNav(currentPageId) {
+            const navLinks = document.querySelectorAll('#navLinks a, .footer-col a[data-page]');
+            navLinks.forEach(link => {
+                const pageVal = link.getAttribute('data-page');
+                if (pageVal === currentPageId) {
+                    link.classList.add('active-page');
+                } else {
+                    link.classList.remove('active-page');
+                }
+            });
+        }
+
+        // render function
+        function renderPage(pageId) {
+            const app = document.getElementById('appRoot');
+            if (!app) return;
+            const content = pages[pageId];
+            if (content) {
+                app.innerHTML = content;
+                // if contact page loaded, attach submit handler after render
+                if (pageId === 'contact') {
+                    const contactForm = document.getElementById('contactForm');
+                    if (contactForm) {
+                        // remove existing listener to avoid duplicates
+                        const newForm = contactForm.cloneNode(true);
+                        contactForm.parentNode.replaceChild(newForm, contactForm);
+                        newForm.addEventListener('submit', function(e) {
+                            e.preventDefault();
+                            const name = document.getElementById('nameField')?.value || '';
+                            const email = document.getElementById('emailField')?.value || '';
+                            const msg = document.getElementById('msgField')?.value || '';
+                            const feedback = document.getElementById('formFeedback');
+                            if(name && email && msg) {
+                                feedback.innerHTML = '✅ Thank you, ' + name + '! We’ll get back to you soon.';
+                                feedback.style.color = '#1e6f5c';
+                                newForm.reset();
+                            } else {
+                                feedback.innerHTML = '❌ Please fill in all required fields.';
+                                feedback.style.color = '#c0392b';
+                            }
+                            setTimeout(() => { if(feedback) feedback.innerHTML = ''; }, 4000);
+                        });
+                    }
+                }
+                // attach any existing .btn, .btn-outline links that have data-page
+                attachDynamicLinks();
+            } else {
+                app.innerHTML = `<div class="container" style="padding:80px"><h2>Page not found</h2></div>`;
+            }
+            setActiveNav(pageId);
+            // scroll to top on page change
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // attach event listeners to any element with data-page (buttons, links)
+        function attachDynamicLinks() {
+            const allPageTriggers = document.querySelectorAll('[data-page]');
+            allPageTriggers.forEach(el => {
+                // remove previous listener to avoid duplicates (simple but effective)
+                const newEl = el.cloneNode(true);
+                el.parentNode?.replaceChild(newEl, el);
+                newEl.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const page = newEl.getAttribute('data-page');
+                    if (page && pages[page]) {
+                        renderPage(page);
+                        // also update browser history to reflect page (optional)
+                        history.pushState({ pageId: page }, '', `#${page}`);
+                    } else if(page === 'home') {
+                        renderPage('home');
+                        history.pushState({ pageId: 'home' }, '', '#home');
+                    }
+                });
+            });
+        }
+
+        // handle back/forward navigation
+        window.addEventListener('popstate', (event) => {
+            const hash = window.location.hash.slice(1);
+            let pageId = 'home';
+            if (hash && pages[hash]) pageId = hash;
+            else if (!hash) pageId = 'home';
+            renderPage(pageId);
+        });
+
+        // initial render: check hash or default home
+        function init() {
+            const hash = window.location.hash.slice(1);
+            let startPage = 'home';
+            if (hash && pages[hash]) startPage = hash;
+            renderPage(startPage);
+            if (startPage !== 'home') history.replaceState({ pageId: startPage }, '', `#${startPage}`);
+            else history.replaceState({ pageId: 'home' }, '', window.location.pathname);
+        }
+
+        init();
+    </script>
+</body>
+</html>
